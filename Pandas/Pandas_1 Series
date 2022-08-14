@@ -1,0 +1,68 @@
+# Pandas_Series 
+
+import pandas as pd
+
+list_s = [1, 2, -3, 6.2, 'data values']
+print(list_s)
+
+srs1 = pd.Series(list_s)
+print(srs1)
+
+type(srs1)
+
+# create new Series
+
+srs2 = pd.Series([4, 2, 5, 1])
+print(srs2)
+
+# create empty series
+empty_s = pd.Series([])
+print(empty_s)
+
+# Change default index value
+srs3 = pd.Series([1,2,3,4,5], index = ['a','b','c','d','e'])
+print(srs3)
+
+# Change data-type value
+srs4 = pd.Series([1,2,3,4,5], index = ['a','b','c','d','e'], dtype = float)
+print(srs4)
+
+# Change a name of data values 
+srs5 = pd.Series([1,2,3,4,5], index = ['a','b','c','d','e'], dtype = float, name = 'data values')
+print(srs5)
+
+# Create a Series using scalar value
+scalar = pd.Series(5)
+print(scalar)
+
+# Print multiple scalar value using index  
+scalar2 = pd.Series(5, index = [1,2,3,4])
+print(scalar2)
+
+# Create series using Dictionary
+dict = pd.Series({'a':1, 'b':2, 'c':3, 'd':4})
+print(dict)
+
+# Access Series value using that index no.
+srs5 = pd.Series([1,2,3,4,5,6])
+print(srs5)
+
+srs5[1]
+
+# slicing series using slicing operator
+srs5[0:3]
+
+# find maximum value in a series
+max(srs5)
+
+# find minimum value in a series
+min(srs5)
+
+# using conditional operator
+srs5[srs5 > 3]
+
+# addition of unequal Series
+srs6 = pd.Series([1,2,3])
+print(srs6)
+
+srs5 + srs6
