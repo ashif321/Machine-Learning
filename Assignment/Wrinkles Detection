@@ -1,0 +1,58 @@
+# Import Libraries
+import cv2
+import numpy as np
+from IPython.display import display, Image
+
+# Loading the require haarcascade XML classifier file and Creating facecascade
+face_cascade = cv2.CascadeClassifier("/home/ashif/.local/lib/python3.9/site-packages/cv2/data/haarcascade_frontalface_default.xml")
+display(Image(filename = "/home/ashif/Machine Learning/wrinkles detect/face2.jpg"))
+
+# Loading image to matrix
+img = cv2.imread("/home/ashif/Machine Learning/wrinkles detect/face2.jpg")
+
+# Converting into greyscale image
+gray_img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+
+# Applying the face detection method on the grayscale image
+faces = face_cascade.detectMultiScale(gray_img, 1.05, 10)
+
+# Using for loop to detected wrinkles on face
+for x,y,w,h in faces:
+    cropped_img = img[y:y+h, x:x+w]
+    edges = cv2.Canny(cropped_img, 13, 1000)
+    number_of_edges = np.count_nonzero(edges)
+
+# Using if/else statement to check wrinkles
+if number_of_edges < 1000:
+    print("Wrinkles Found")
+else:
+    print("No Wrinkles Found")
+   
+# The Output is:- No Wrinkles Found   
+
+# Loading the require haarcascade XML classifier file and Creating facecascade
+face_cascade = cv2.CascadeClassifier("/home/ashif/.local/lib/python3.9/site-packages/cv2/data/haarcascade_frontalface_default.xml")
+display(Image(filename = "/home/ashif/Machine Learning/wrinkles detect/face1.jpg"))
+
+# Loading image to matrix
+img = cv2.imread("/home/ashif/Machine Learning/wrinkles detect/face1.jpg")
+
+# Converting into greyscale image
+gray_img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+
+# Applying the face detection method on the grayscale image
+faces = face_cascade.detectMultiScale(gray_img, 1.05, 10)
+
+# Using for loop to detected wrinkles on face
+for x,y,w,h in faces:
+    cropped_img = img[y:y+h, x:x+w]
+    edges = cv2.Canny(cropped_img, 13, 1000)
+    number_of_edges = np.count_nonzero(edges)
+
+# Using if/else statement to check wrinkles
+if number_of_edges < 1000:
+    print("Wrinkles Found")
+else:
+    print("No Wrinkles Found")
+
+# The output is :- Wrinkles Found 
